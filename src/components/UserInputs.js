@@ -11,6 +11,7 @@ export const UserInputs = () => {
     const [endDate, setEndDate] = useState("");
     const [dailyFlux, setDailyFlux] = useState([]);
     const [impossibleFlux, setImpossibleFlux] = useState([]);
+    const [imageUrl, setImageUrl] = useState("");
 
     const handleChangePatrimoine = (e) => {
         setSelectedPatrimoine(e.target.value);
@@ -84,6 +85,10 @@ export const UserInputs = () => {
         const { dailyFluxList, impossibleFluxList } = generateFlux();
         setDailyFlux(dailyFluxList);
         setImpossibleFlux(impossibleFluxList);
+        const selectedData = patrimoinies.find(item => item.name === selectedPatrimoine);
+        if (selectedData) {
+            setImageUrl(selectedData.images);
+        }
     };
 
     return (
@@ -95,7 +100,6 @@ export const UserInputs = () => {
                         <select name="patrimoine" id="patrimoine" onChange={handleChangePatrimoine}>
                             <option value="">Sélectionnez un patrimoine</option>
                             <option value="Cresus">Cresus</option>
-                            <option value="Patrimoine César">Patrimoine César</option>
                         </select>
                         <br />
 
@@ -167,7 +171,7 @@ export const UserInputs = () => {
                 </div>
                 <div>
                     <p>Patrimoine :{selectedPatrimoine} </p>
-                    <img src="https://via.placeholder.com/600x400" alt="Static Graph" />
+                    <img src={imageUrl} alt="Static Graph" />
                 </div>
             </div>
         </div>

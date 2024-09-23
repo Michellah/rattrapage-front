@@ -1,0 +1,25 @@
+.flux-style {
+ margin-top: "20px";
+ border: "1px solid #ccc";
+ padding: "10px";
+}
+
+.list {
+list-style: none;
+
+}
+
+
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2em 2em;
+    padding: 2em;
+}
+
+.flux {
+    margin-top: 1em;
+    border: solid 1px black;
+    border-radius: 5px;
+}
